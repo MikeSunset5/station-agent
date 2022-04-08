@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The info you need and only what you need
 
-Things you may want to cover:
+It’s hard enough to catch your train on time and the MTA isn’t the best about giving updates in an easy to digest or find way.
 
-* Ruby version
+But one place that they do provide detailed information and time relevant information is on the @NYCTSubway twitter account. 
 
-* System dependencies
+But even there is it a bit of information overload. Station Agent is there to break up the clutter and provide users only the information they care about.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+---
