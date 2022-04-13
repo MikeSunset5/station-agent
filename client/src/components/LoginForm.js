@@ -6,7 +6,7 @@ function LoginForm ({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(e) {
+  function handleLogin(e) {
     e.preventDefault();
     setIsLoading(true);
     fetch("/login", {
@@ -25,9 +25,17 @@ function LoginForm ({ onLogin }) {
     });
   }
 
+  function handleLogout() {
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        onLogin(null);
+      }
+    });
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-        <label className="login-labels" htmlFor="username">Username:  </label>
+    <form onSubmit={handleLogin}>
+        <label className="login-labels" htmlFor="username"> Username:  </label>
         <input className="input-form"
           type="text"
           id="username"
@@ -35,14 +43,15 @@ function LoginForm ({ onLogin }) {
           value={username}
           onChange={(e) => setUsername(e.target.value)} />
 
-        <label className="login-labels" htmlFor="password">Password: </label>
+        <label className="login-labels" htmlFor="password"> Password: </label>
         <input className="input-form"
           type="password"
           id="password"
           autoComplete="current-password"
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
-          <button className="button-test" type="submit">Login</button>
+          <button className="button" type="submit">Login</button>
+          <button className="button" type="submit" onSubmit={handleLogout}>Logout</button>
     </form>
   );
 }
