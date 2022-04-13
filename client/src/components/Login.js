@@ -7,13 +7,7 @@ function Login({onLogin}) {
   const [showLogin, setShowLogin] = useState(true)
 
  
-  function handleLogoutClick() {
-    fetch("/logout", { method: "DELETE" }).then((r) => {
-      if (r.ok) {
-        onLogin(null);
-      }
-    });
-  }
+
 
   return (
     <div className="form-container">
