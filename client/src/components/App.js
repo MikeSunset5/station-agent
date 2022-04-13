@@ -8,20 +8,28 @@ import Home from "./Home";
 function App() {
   const [count, setCount] = useState(0);
   const [user, setUser] = useState(null);
-  const [tweets, setTweets] = useState([])
+  const [tweets, setTweets] = useState([]);
 
-/*   useEffect(() => {
+  useEffect(() => {
     fetch("/hello")
       .then((r) => r.json())
       .then((data) => setCount(data.count));
-  }, []);  */
+  }, []);  
 
   useEffect(() => {
+    //fectchs tweets as an object
     fetch("/twitter")
     .then((r) => r.json())
-    .then((data) => setTweets(data));
+    .then((rjson) => {
+      //debugger
+      setTweets(rjson.data)
+    });
   }, []);
-console.log(tweets)
+
+// converts tweets object into and array
+const tweetArry = Object.values(tweets) 
+//debugger
+
   useEffect(() => {
     // auto-login
     fetch("/me").then((r) => {
@@ -49,7 +57,7 @@ console.log(tweets)
           </Route>
           <Route exact path="/">
             <h1>Page Count: {count}</h1>
-            <Home tweets={tweets}/>
+            <Home tweets={tweetArry}/>
           </Route>
           <TrainBar />
           
