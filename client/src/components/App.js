@@ -6,15 +6,11 @@ import TrainBar from "./TrainBar";
 import Home from "./Home";
 
 function App() {
-  const [count, setCount] = useState(0);
+
   const [user, setUser] = useState(null);
   const [tweets, setTweets] = useState([]);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);  
+ 
 
   useEffect(() => {
     //fectchs tweets as an object
@@ -26,7 +22,7 @@ function App() {
     });
   }, []);
 
-// converts tweets object into and array
+// converts tweets object into an array
 const tweetArry = Object.values(tweets) 
 //debugger
 
@@ -50,18 +46,17 @@ const tweetArry = Object.values(tweets)
     <BrowserRouter>
       <div className="App">
         <Login user={user} onLogin={setUser}/>
-        
+        <TrainBar tweets={tweetArry}/>
         <Switch>
           <Route exact path="/testing">
             <h1>Test Route</h1>
           </Route>
           <Route exact path="/">
-            <h1>Page Count: {count}</h1>
-            <Home tweets={tweetArry}/>
+          <Home tweets={tweetArry}/>
           </Route>
-          <TrainBar />
-          
-         
+          <Route>
+            
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
