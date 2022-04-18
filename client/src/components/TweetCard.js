@@ -1,7 +1,6 @@
 import React from "react";
 
 function TweetCard({tweet}) {
-    console.log({tweet})
     return (
         <li key={tweet.id} className ="cards">
             <h4>@NYCT Subway</h4>
