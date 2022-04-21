@@ -7,7 +7,7 @@ class TwitterController < ApplicationController
     skip_before_action :authorize, only: [:tweets]
 
     def tweets 
-        url = URI("https://api.twitter.com/2/users/66379182/tweets?tweet.fields=text&exclude=replies")
+        url = URI("https://api.twitter.com/2/users/66379182/tweets?tweet.fields=text,created_at&exclude=replies")
     
         https = Net::HTTP.new(url.host, url.port)
         https.use_ssl = true

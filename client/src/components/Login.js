@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
 
 
-function Login({onLogin}) {
+function Login({user, onLogin}) {
   const [showLogin, setShowLogin] = useState(true)
 
  

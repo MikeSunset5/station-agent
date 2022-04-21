@@ -11,15 +11,14 @@ function App() {
   const [tweets, setTweets] = useState([]);
   const [trains, setTrains] = useState([]);
   const [visibleTweets, setVisibleTweets] = useState([]);
-/*   const [filteredTweets, setFilteredTweets] = useState([]);
-  const [selectedTrain, setSelectedTrain] = useState('All') */
+
 
 //fectchs tweets as an object
   useEffect(() => {
     fetch("/twitter")
     .then((r) => r.json())
     .then((rjson) => {
-     // console.log('init tweetrr', rjson.data) 
+  
 
       setVisibleTweets(rjson.data)
       setTweets(rjson.data)
@@ -34,7 +33,7 @@ function App() {
       setTrains(rjson)
     })
   }, [])
-//display tweet array
+
 
   useEffect(() => {
     // auto-login
