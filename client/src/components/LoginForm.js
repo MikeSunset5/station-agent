@@ -51,7 +51,7 @@ function LoginForm ({ onLogin }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)} />
           <button className="button" type="submit">Login</button>
-          <button className="button" type="submit" onSubmit={handleLogout}>Logout</button>
+          <button className="button" type="submit" onClick={handleLogout}>Logout</button>
     </form>
   );
 }
